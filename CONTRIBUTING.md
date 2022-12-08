@@ -14,6 +14,3 @@ You may look through the GitHub [issues][1] for feature requests.
 - Fork the repository and create a new branch from the `develop` branch.
 - For bug fixes, add new tests. We use [jest.js][2]  to test our code.
 - Do a PR from your new branch to our `develop` branch of the original make-sense repo.
-
-[1]: https://github.com/SkalskiP/make-sense/issues/
-[2]: https://jestjs.io/
