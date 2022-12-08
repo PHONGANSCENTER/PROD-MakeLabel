@@ -16,8 +16,6 @@ You can find out more about our tool from the newly released [documentation][14]
 
 In the future, we also plan to add, among other things, models that classify photos, detect characteristic features of faces as well as whole faces. The engine that drives our AI functionalities is [TensorFlow.js][10] - JS version of the most popular framework for training neural networks. This choice allows us not only to speed up your work but also to care about the privacy of your data, because unlike with other commercial and open source tools, your photos do not have to be transferred to the server. This time AI comes to your device!
 
-https://user-images.githubusercontent.com/26109316/193255987-2d01c549-48c3-41ae-87e9-e1b378968966.mov
-
 ## 💻 Local Setup
 
 ```bash
