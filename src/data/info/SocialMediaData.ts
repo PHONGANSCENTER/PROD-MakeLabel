@@ -10,24 +10,24 @@ export interface ISocialMedia {
 
 export const SocialMediaData: ISocialMedia[] = [
     {
-        displayName: 'Github',
-        imageSrc: '/ico/github-logo.png',
-        imageAlt: 'GitHub',
+        displayName: 'Linkedin',
+        imageSrc: '/ico/linkedin.png',
+        imageAlt: 'Linkedin',
         href: Settings.GITHUB_URL,
-        tooltipMessage: 'Show us some love on GitHub',
+        tooltipMessage: 'Show us some love on Linkedin',
     },
     {
-        displayName: 'Medium',
-        imageSrc: '/ico/medium-logo.png',
-        imageAlt: 'Medium',
+        displayName: 'Website',
+        imageSrc: '/ico/online.png',
+        imageAlt: 'Website',
         href: Settings.MEDIUM_URL,
-        tooltipMessage: 'Read our AI content on Medium',
+        tooltipMessage: 'Read our AI content on Website',
     },
     {
-        displayName: 'Twitch',
-        imageSrc: '/ico/twitch-logo.png',
-        imageAlt: 'Twitch',
+        displayName: 'Facebook',
+        imageSrc: '/ico/facebook.png',
+        imageAlt: 'Facebook',
         href: Settings.TWITCH_URL,
-        tooltipMessage: 'Watch as we build Make Sense right in front your eyes on Twitch'
+        tooltipMessage: 'Watch as we build Make Sense right in front your eyes on Facebook'
     },
 ];

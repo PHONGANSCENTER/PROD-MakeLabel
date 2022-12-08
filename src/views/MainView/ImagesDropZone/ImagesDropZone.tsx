@@ -32,7 +32,7 @@ const ImagesDropZone: React.FC<IProps> = (props: PropsWithChildren<IProps>) => {
         if (acceptedFiles.length > 0) {
             const files = sortBy(acceptedFiles, (item: File) => item.name)
             props.updateProjectDataAction({
-                ...props.projectData,
+                ...props.projectData, 
                 type: projectType
             });
             props.updateActiveImageIndexAction(0);

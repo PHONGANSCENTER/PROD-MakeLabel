@@ -6,7 +6,7 @@ export interface IEditorFeature {
 
 export const EditorFeatureData: IEditorFeature[] = [
     {
-        displayText: 'Open source and free to use under GPLv3 license',
+        displayText: 'Automatically annotate images using an existing model',
         imageSrc: 'ico/open-source.png',
         imageAlt: 'open-source',
     },
@@ -26,12 +26,12 @@ export const EditorFeatureData: IEditorFeature[] = [
         imageAlt: 'labels',
     },
     {
-        displayText: 'Support output file formats like YOLO, VOC XML, VGG JSON, CSV',
+        displayText: 'Support output file formats like TXT (Yolo v5, Yolo v6, Yolo v7), VOC XML, VGG JSON, CSV',
         imageSrc: 'ico/file.png',
         imageAlt: 'file',
     },
     {
-        displayText: 'Use AI to make your work more productive',
+        displayText: 'Use AI to make your work more productive)',
         imageSrc: 'ico/robot.png',
         imageAlt: 'robot',
     },

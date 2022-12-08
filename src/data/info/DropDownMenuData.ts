@@ -73,7 +73,7 @@ export const DropDownMenuData: DropDownMenuNode[] = [
                 imageSrc: 'ico/documentation.png',
                 imageAlt: 'documentation',
                 disabled: false,
-                onClick: () => window.open('https://skalskip.github.io/make-sense', '_blank')
+                onClick: () => window.open('#', '_blank')
             },
             {
                 name: 'Bugs and Features',
@@ -81,7 +81,7 @@ export const DropDownMenuData: DropDownMenuNode[] = [
                 imageSrc: 'ico/bug.png',
                 imageAlt: 'bug',
                 disabled: false,
-                onClick: () => window.open('https://github.com/SkalskiP/make-sense/issues', '_blank')
+                onClick: () => window.open('#', '_blank')
             }
         ]
     }

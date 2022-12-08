@@ -24,7 +24,7 @@ interface IProps {
     activeImageIndex:number,
     activeLabelType: LabelType;
     imagesData: ImageData[];
-    projectType: ProjectType;
+    projectType: ProjectType; 
     updateImageDataById: (id: string, newImageData: ImageData) => any;
     updateActiveLabelType: (activeLabelType: LabelType) => any;
     updateActiveLabelId: (highlightedLabelId: string) => any;

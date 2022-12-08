@@ -35,7 +35,7 @@ const PointLabelsList: React.FC<IProps> = (
         labelNames,
         updateActiveLabelNameIdAction,
         activeLabelId,
-        highlightedLabelId,
+        highlightedLabelId, 
         updateActiveLabelIdAction
     }
 ) => {

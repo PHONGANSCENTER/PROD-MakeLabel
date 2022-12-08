@@ -1,20 +1,20 @@
 import React from 'react';
-import {ISize} from '../../../../interfaces/ISize';
+import { ISize } from '../../../../interfaces/ISize';
 import './LabelInputField.scss';
 import classNames from 'classnames';
-import {ImageButton} from '../../../Common/ImageButton/ImageButton';
-import {IRect} from '../../../../interfaces/IRect';
-import {IPoint} from '../../../../interfaces/IPoint';
-import {RectUtil} from '../../../../utils/RectUtil';
-import {AppState} from '../../../../store';
-import {connect} from 'react-redux';
-import {updateActiveLabelId, updateHighlightedLabelId} from '../../../../store/labels/actionCreators';
+import { ImageButton } from '../../../Common/ImageButton/ImageButton';
+import { IRect } from '../../../../interfaces/IRect';
+import { IPoint } from '../../../../interfaces/IPoint';
+import { RectUtil } from '../../../../utils/RectUtil';
+import { AppState } from '../../../../store';
+import { connect } from 'react-redux';
+import { updateActiveLabelId, updateHighlightedLabelId } from '../../../../store/labels/actionCreators';
 import Scrollbars from 'react-custom-scrollbars-2';
-import {EventType} from '../../../../data/enums/EventType';
-import {LabelName} from '../../../../store/labels/types';
-import {LabelsSelector} from '../../../../store/selectors/LabelsSelector';
-import {PopupWindowType} from '../../../../data/enums/PopupWindowType';
-import {updateActivePopupType} from '../../../../store/general/actionCreators';
+import { EventType } from '../../../../data/enums/EventType';
+import { LabelName } from '../../../../store/labels/types';
+import { LabelsSelector } from '../../../../store/selectors/LabelsSelector';
+import { PopupWindowType } from '../../../../data/enums/PopupWindowType';
+import { updateActivePopupType } from '../../../../store/general/actionCreators';
 
 interface IProps {
     size: ISize;
@@ -73,13 +73,13 @@ class LabelInputField extends React.Component<IProps, IState> {
         if (LabelsSelector.getLabelNames().length === 0) {
             this.props.updateActivePopupType(PopupWindowType.UPDATE_LABEL);
         } else {
-            this.setState({isOpen: true});
+            this.setState({ isOpen: true });
             window.addEventListener(EventType.MOUSE_DOWN, this.closeDropdown);
         }
     };
 
     private closeDropdown = (event: MouseEvent) => {
-        const mousePosition: IPoint = {x: event.clientX, y: event.clientY};
+        const mousePosition: IPoint = { x: event.clientX, y: event.clientY };
         const clientRect = this.dropdown.getBoundingClientRect();
         const dropDownRect: IRect = {
             x: clientRect.left,
@@ -89,12 +89,12 @@ class LabelInputField extends React.Component<IProps, IState> {
         };
 
         if (!RectUtil.isPointInside(dropDownRect, mousePosition)) {
-            this.setState({isOpen: false});
+            this.setState({ isOpen: false });
             window.removeEventListener(EventType.MOUSE_DOWN, this.closeDropdown)
         }
     };
 
-    private getDropdownStyle = ():React.CSSProperties => {
+    private getDropdownStyle = (): React.CSSProperties => {
         const clientRect = this.dropdownLabel.getBoundingClientRect();
         const height: number = Math.min(this.props.options.length, this.dropdownOptionCount) * this.dropdownOptionHeight;
         const style = {
@@ -103,15 +103,15 @@ class LabelInputField extends React.Component<IProps, IState> {
             left: clientRect.left
         };
 
-        if (window.innerHeight * 2/3 < clientRect.top)
-            return Object.assign(style, {top: clientRect.top - this.dropdownMargin - height});
+        if (window.innerHeight * 2 / 3 < clientRect.top)
+            return Object.assign(style, { top: clientRect.top - this.dropdownMargin - height });
         else
-            return Object.assign(style, {top: clientRect.bottom + this.dropdownMargin});
+            return Object.assign(style, { top: clientRect.bottom + this.dropdownMargin });
     };
 
     private getDropdownOptions = () => {
-        const onClick = (id: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-            this.setState({isOpen: false});
+        const onClick = (id: string, event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            this.setState({ isOpen: false });
             window.removeEventListener(EventType.MOUSE_DOWN, this.closeDropdown);
             this.props.onSelectLabel(this.props.id, id);
             this.props.updateHighlightedLabelId(null);
@@ -123,7 +123,7 @@ class LabelInputField extends React.Component<IProps, IState> {
             return <div
                 className='DropdownOption'
                 key={option.id}
-                style={{height: this.dropdownOptionHeight}}
+                style={{ height: this.dropdownOptionHeight }}
                 onClick={(event) => onClick(option.id, event)}
             >
                 {option.name}
@@ -135,7 +135,7 @@ class LabelInputField extends React.Component<IProps, IState> {
         this.props.updateHighlightedLabelId(this.props.id);
     };
 
-    private mouseLeaveHandler =() => {
+    private mouseLeaveHandler = () => {
         this.props.updateHighlightedLabelId(null);
     };
 
@@ -147,20 +147,20 @@ class LabelInputField extends React.Component<IProps, IState> {
         if (this.props.toggleLabelVisibility === undefined) {
             return null
         }
-        return(
+        return (
             <ImageButton
                 externalClassName={'icon'}
                 image={this.props.isVisible ? 'ico/eye.png' : 'ico/hide.png'}
                 imageAlt={'label is hidden'}
-                buttonSize={{width: 28, height: 28}}
+                buttonSize={{ width: 28, height: 28 }}
                 onClick={() => this.props.toggleLabelVisibility(id)}
             />
         )
     }
 
     public render() {
-        const {size, id, value, onDelete} = this.props;
-        return(
+        const { size, id, value, onDelete } = this.props;
+        return (
             <div
                 className={this.getClassName()}
                 style={{
@@ -181,13 +181,13 @@ class LabelInputField extends React.Component<IProps, IState> {
                 >
                     <div
                         className='Marker'
-                        style={value ? {backgroundColor: value.color} : {}}
+                        style={value ? { backgroundColor: value.color } : {}}
                     />
                     <div className='Content'>
                         <div className='ContentWrapper'>
                             <div className='DropdownLabel'
-                                 ref={ref => this.dropdownLabel = ref}
-                                 onClick={this.openDropdown}
+                                ref={ref => this.dropdownLabel = ref}
+                                onClick={this.openDropdown}
                             >
                                 {value ? value.name : 'Select label'}
                             </div>
@@ -197,7 +197,7 @@ class LabelInputField extends React.Component<IProps, IState> {
                                 ref={ref => this.dropdown = ref}
                             >
                                 <Scrollbars
-                                    renderTrackHorizontal={props => <div {...props} className='track-horizontal'/>}
+                                    renderTrackHorizontal={props => <div {...props} className='track-horizontal' />}
                                 >
                                     <div>
                                         {this.getDropdownOptions()}
@@ -212,7 +212,7 @@ class LabelInputField extends React.Component<IProps, IState> {
                                 externalClassName={'icon'}
                                 image={'ico/trash.png'}
                                 imageAlt={'remove label'}
-                                buttonSize={{width: 28, height: 28}}
+                                buttonSize={{ width: 28, height: 28 }}
                                 onClick={() => onDelete(id)}
                             />
                         </div>
